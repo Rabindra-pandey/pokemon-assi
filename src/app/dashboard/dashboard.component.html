@@ -1,0 +1,20 @@
+
+<div class="row">
+    <div class="col-12 text-align-right">
+        <app-seach (opt)="searchData($event)"></app-seach>
+    </div>
+</div>
+<mat-progress-spinner *ngIf="spinner" mode="indeterminate" diameter="40"></mat-progress-spinner>
+<div class="row mx-10" *ngIf="!spinner">
+    <div class="col-4" *ngFor="let item of lists">
+        <app-details class="m-10 block" [item]="item"></app-details>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 mtb-10">
+        <mat-paginator [length]="totalCount" [pageSize]="pageSize"
+            (page)="pageEvent = getPaginatorData($event)" [pageSizeOptions]="pageSizeOptions"
+            showFirstLastButtons="true">
+        </mat-paginator>
+    </div>
+</div>

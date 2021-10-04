@@ -1,0 +1,22 @@
+.text-align-center{
+    text-align: center;
+    margin: 0;
+    img{
+        width: 100%;
+        /*border: 1px solid #f3f3f3;*/
+    }
+}
+
+.profile{
+    h2{
+        background-color: #f3f3f3;
+        padding: 10px 15px;
+    }
+    .wrapper{
+        padding: 10px 15px;
+        border: 1px solid #f3f3f3;
+    }
+    p{
+        margin-bottom: 15px;
+    }
+}

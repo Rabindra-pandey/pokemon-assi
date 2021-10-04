@@ -1,0 +1,11 @@
+          
+            <label>Sort: </label>
+            <select class="sorting-opt" name="sorting" [(ngModel)]="data.sort" (change)="onChangeEvent()">
+                <option value="" [selected]="true">Select</option>
+                <option *ngFor="let itm of sortingLists" [value]="itm">{{itm | uppercase }}</option>
+            </select>
+            <label>Search: </label>
+            <form class="search-form" (ngSubmit)="onChangeEvent()">
+                <input class="search-input" type="text" name="search" [(ngModel)]="data.search" placeholder="Search...">
+                <button class="search-btn" type="submit">Search</button>
+            </form>

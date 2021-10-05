@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Excercise
 
-It's a simple web page consist of 20 cards. Each cards consists of pokemon with image, name, height, weight and abilities. We can search the pokemon by typing the name within seach bar and press enter which will redirect to pokemon page with the single view and if the name is not present, it will show a alert message.
+It's a simple web page consist of 20 cards. Each card consists of pokemon with image, name, height, weight and abilities. We can search the pokemon by typing the name within seach bar and press enter which will redirect to pokemon page with the single view and if the name is not present, it will show a alert message.
 
 ## Installation
 

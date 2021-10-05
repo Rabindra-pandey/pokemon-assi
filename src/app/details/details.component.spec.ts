@@ -10,16 +10,14 @@ describe('DetailsComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DetailsComponent ]
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(DetailsComponent);
+      component = fixture.componentInstance;
+    });
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });

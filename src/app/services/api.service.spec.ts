@@ -1,16 +1,33 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ApiService } from './api.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('ApiService', () => {
-  let service: ApiService;
+  let apiService: ApiService,
+      httpTestingController: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ApiService);
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [
+        ApiService
+      ]
+    });
+    apiService = TestBed.get(ApiService);
+    httpTestingController = TestBed.get(HttpTestingController);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(apiService).toBeTruthy();
+  });
+
+  it('should retrive all pokemons', () => {
+    let offset = 0,
+        limit = 20;
+    apiService.getAll(offset, limit)
+      .subscribe((pokemons) => {
+        expect(pokemons).toBeTruthy('No data found')
+      })
   });
 });

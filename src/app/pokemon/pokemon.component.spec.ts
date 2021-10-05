@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonComponent } from './pokemon.component';
+import { AppModule } from '../app.module';
 
 describe('PokemonComponent', () => {
   let component: PokemonComponent;
@@ -8,18 +9,16 @@ describe('PokemonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokemonComponent ]
+      imports: [AppModule]
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(PokemonComponent);
+      component = fixture.componentInstance;
+    });
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PokemonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });

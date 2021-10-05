@@ -10,16 +10,14 @@ describe('FooterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ FooterComponent ]
     })
-    .compileComponents();
+    .compileComponents()
+    .then(() => {
+      fixture = TestBed.createComponent(FooterComponent);
+      component = fixture.componentInstance;
+    });
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 });

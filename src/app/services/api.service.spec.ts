@@ -5,15 +5,15 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { DATA, POKEMON } from '../models/testdata';
 
 describe('ApiService', () => {
-  let apiService: ApiService,
-      httpTestingController: HttpTestingController;
+  let apiService: ApiService;
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
     });
-    apiService = TestBed.get(ApiService);
-    httpTestingController = TestBed.get(HttpTestingController);
+    apiService = TestBed.inject(ApiService);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
@@ -21,12 +21,12 @@ describe('ApiService', () => {
   });
 
   it('should retrive all pokemons', () => {
-    let offset = 0,
-        limit = 20;
+    const offset = 0;
+    const limit = 20;
     apiService.getAll(offset, limit)
       .subscribe((pokemons) => {
         expect(pokemons).toBeTruthy('No data found');
-        const pokemon = pokemons.find(pok => pok.id==10);
+        const pokemon = pokemons.find(pok => pok.id === 10);
         expect(pokemon.name).toBe('caterpie');
       });
 
@@ -36,7 +36,7 @@ describe('ApiService', () => {
   });
 
   it('should find a pokemon by name', () => {
-    let pokemonName = 'caterpie';
+    const pokemonName = 'caterpie';
     apiService.getDetails(pokemonName)
       .subscribe((pokemon) => {
         expect(pokemon).toBeTruthy('No data found');

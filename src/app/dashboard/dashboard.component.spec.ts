@@ -29,11 +29,11 @@ describe('DashboardComponent', () => {
   });
 
   it('should display the pokemion list', () => {
-    component.lists = POKEMON; 
+    component.lists = POKEMON;
     const cards = el.queryAll(By.css('.block'));
-    //const cards = element.nativeElement.querySelector('.block');
+    // const cards = element.nativeElement.querySelector('.block');
     expect(cards).toBeTruthy('Could not find cards');
-    //expect(cards.length).toBe(20, `Unexpected number of pokemon`);
+    // expect(cards.length).toBe(20, `Unexpected number of pokemon`);
   });
 
 });

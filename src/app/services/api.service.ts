@@ -19,11 +19,6 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  getDetailsss(name: string): Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${name}/`);
-  }
-
-  // use this API is search and finding evolved pokemon pic
   getDetails(pokemonName: string): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
   }

@@ -10,13 +10,13 @@ export class StoreService {
 
   constructor() { }
 
-  setPokemonIntoStore(res: PokemonDetails) {
-    if(res) {
+  setPokemonIntoStore(res: PokemonDetails): void {
+    if (res) {
       this.pokemons.push(res);
     }
   }
 
-  getPokemonFromStore(name: string) {
-    return this.pokemons.find((item: any) => item.name===name);
+  getPokemonFromStore(name: string): any {
+    return this.pokemons.find((item: any) => item.name === name);
   }
 }

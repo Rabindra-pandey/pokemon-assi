@@ -11,7 +11,7 @@ export class SeachComponent implements OnInit{
     sort: '',
     search: ''
   };
-  @Output() opt:EventEmitter<string> = new EventEmitter();
+  @Output() opt: EventEmitter<string> = new EventEmitter();
 
 
   constructor() { }

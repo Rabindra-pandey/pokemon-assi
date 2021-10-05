@@ -9,8 +9,8 @@ import { StoreService } from '../services/store.service';
   styleUrls: ['./pokemon.component.scss']
 })
 export class PokemonComponent implements OnInit {
-  pokemonName:string;
-  pokemonImg:string;
+  pokemonName: string;
+  pokemonImg: string;
   pokemonHeight: number;
   pokemonWeight: number;
   pokemonAbilities: string;
@@ -18,10 +18,9 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params => {
-      this.pokemonName = params['id'];    
+      this.pokemonName = params.id;
       const pokemonRes = this.store.getPokemonFromStore(this.pokemonName);
-      console.log('dd', pokemonRes)
-      if(!pokemonRes ) {
+      if (!pokemonRes) {
         this.api.getDetails(this.pokemonName).subscribe((res: any) => {
           this.pokemonImg = res.sprites.other['official-artwork'].front_default;
           this.pokemonHeight = res.height;
@@ -36,8 +35,8 @@ export class PokemonComponent implements OnInit {
         this.pokemonHeight = pokemonRes.height;
         this.pokemonWeight = pokemonRes.weight;
         this.pokemonAbilities = this.abilitiesStr(pokemonRes);
-      }      
-    }); 
+      }
+    });
   }
 
   abilitiesStr(val): string {

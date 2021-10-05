@@ -55,6 +55,10 @@ footer{
     flex-basis: 25%;    
 }
 
+.col-6{
+    flex-basis: 50%;
+}
+
 .col-12{
     flex-basis: 100%;
 }
@@ -83,7 +87,7 @@ footer{
 }
 
 @media only screen and (max-width: 767px){
-    .col-4, .col-8{
+    .col-4, .col-8, .col-6{
         flex-basis: 100%;
     }
 }

@@ -1,7 +1,13 @@
 
 <div class="row">
-    <div class="col-12 text-align-right">
+    <div class="col-6">
         <app-seach (opt)="searchData($event)"></app-seach>
+    </div>
+    <div class="col-6">
+        <mat-paginator [length]="totalCount" [pageSize]="pageSize" 
+            (page)="pageEvent = getPaginatorData($event)" [hidePageSize]="true"
+            showFirstLastButtons="false">
+        </mat-paginator>
     </div>
 </div>
 <mat-progress-spinner *ngIf="spinner" mode="indeterminate" diameter="40"></mat-progress-spinner>

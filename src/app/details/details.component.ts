@@ -14,11 +14,11 @@ export class DetailsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.pokemonImg = this.item.sprites.other['official-artwork'].front_default;
     this.pokemonHeight = this.item.height;
     this.pokemonWeight = this.item.weight;
-    this.pokemonAbilities = this.abilitiesStr(this.item);     
+    this.pokemonAbilities = this.abilitiesStr(this.item);
   }
 
   abilitiesStr(val): string {

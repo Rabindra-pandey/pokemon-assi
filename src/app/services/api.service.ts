@@ -10,8 +10,8 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAll(pageIndex, pageSize): Observable<any> {
-    let limit = pageSize;
-    let offset = pageSize * pageIndex;
+    const limit = pageSize;
+    const offset = pageSize * pageIndex;
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`);
   }
 
@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   // use this API is search and finding evolved pokemon pic
-  getDetails(pokemonName: string) {
+  getDetails(pokemonName: string): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
   }
 }

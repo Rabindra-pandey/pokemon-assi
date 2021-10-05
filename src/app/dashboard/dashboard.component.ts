@@ -15,11 +15,11 @@ export class DashboardComponent implements OnInit {
   pokemonList = [];
 
   pageEvent: PageEvent;
-  pageIndex:number = 0;
-  pageSize:number = 20;
+  pageIndex = 0;
+  pageSize = 20;
   pageSizeOptions: number[] = [10, 20, 50];
   totalCount: number;
-  spinner: boolean = true;
+  spinner = true;
 
   constructor(private api: ApiService, private store: StoreService, private router: Router) { }
 
@@ -49,21 +49,21 @@ export class DashboardComponent implements OnInit {
   }
 
   searchData(event: any): void {
-    if(event.search) {
-      let pokemonName = event.search.toLowerCase();
+    if (event.search) {
+      const pokemonName = event.search.toLowerCase();
       this.api.getDetails(pokemonName).subscribe((res: any) => {
         this.store.setPokemonIntoStore(res);
-        this.redirectTo(pokemonName);  
+        this.redirectTo(pokemonName);
       },
       (err) => {
         alert('Data not found');
-      });           
+      });
     }
   }
 
   redirectTo(name: string): void {
     sessionStorage.setItem('pokemon', name);
-    this.router.navigate(['/pokemon', name])
+    this.router.navigate(['/pokemon', name]);
   }
 
   getPaginatorData(event: PageEvent): PageEvent {
